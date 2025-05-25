@@ -25,6 +25,7 @@ public class DataMapProvider extends net.neoforged.neoforge.common.data.DataMapP
     @Override
     protected void gather() {
         final var fuels = builder(MetalworksRegistrator.FUEL_MAP);
+        final var energyCoilMelter = builder(MetalworksRegistrator.ENERGY_COIL_MAP);
         final var entityMelting = builder(MetalworksRegistrator.ENTITY_MELTING_MAP);
         final var units = builder(MetalworksRegistrator.UNIT_MAP);
 

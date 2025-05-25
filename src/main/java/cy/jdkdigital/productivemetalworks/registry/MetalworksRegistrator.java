@@ -4,6 +4,7 @@ import cy.jdkdigital.productivelib.util.ImmutableFluidStack;
 import cy.jdkdigital.productivemetalworks.ProductiveMetalworks;
 import cy.jdkdigital.productivemetalworks.common.block.*;
 import cy.jdkdigital.productivemetalworks.common.block.entity.*;
+import cy.jdkdigital.productivemetalworks.common.datamap.EnergyCoilMap;
 import cy.jdkdigital.productivemetalworks.common.datamap.EntityMeltingMap;
 import cy.jdkdigital.productivemetalworks.common.datamap.FuelMap;
 import cy.jdkdigital.productivemetalworks.common.datamap.UnitMap;
@@ -47,6 +48,7 @@ public class MetalworksRegistrator
     public static void register() {}
 
     public static final DataMapType<Fluid, FuelMap> FUEL_MAP = DataMapType.builder(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "fuel_map"), Registries.FLUID, FuelMap.CODEC).synced(FuelMap.CODEC, false).build();
+    public static final DataMapType<Block, EnergyCoilMap> ENERGY_COIL_MAP = DataMapType.builder(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block_melting"), Registries.BLOCK, EnergyCoilMap.CODEC).synced(EnergyCoilMap.CODEC, false).build();
     public static final DataMapType<EntityType<?>, EntityMeltingMap> ENTITY_MELTING_MAP = DataMapType.builder(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "entity_melting"), Registries.ENTITY_TYPE, EntityMeltingMap.CODEC).synced(EntityMeltingMap.CODEC, false).build();
     public static final DataMapType<Fluid, UnitMap> UNIT_MAP = DataMapType.builder(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "unit_map"), Registries.FLUID, UnitMap.CODEC).synced(UnitMap.CODEC, false).build();
     public static final Supplier<DataComponentType<ImmutableFluidStack>> FLUID_STACK = ProductiveMetalworks.DATA_COMPONENTS.register("fluid_stack", () -> DataComponentType.<ImmutableFluidStack>builder().persistent(ImmutableFluidStack.CODEC).networkSynchronized(ImmutableFluidStack.STREAM_CODEC).build());
@@ -77,6 +79,7 @@ public class MetalworksRegistrator
     public static final DeferredHolder<Block, Block> CASTING_TABLE = registerBlock("casting_table", () -> new CastingTableBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON)), true);
     public static final DeferredHolder<Block, Block> LIQUID_HEATING_COIL = registerBlock("liquid_heating_coil", () -> new AttachedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(state -> state.getValue(BlockStateProperties.ATTACHED) ? 7 : 0)), true);
     public static final DeferredHolder<Block, Block> POWERED_HEATING_COIL = registerBlock("powered_heating_coil", () -> new AttachedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(state -> state.getValue(BlockStateProperties.ATTACHED) ? 7 : 0)), true);
+    public static final DeferredHolder<Block, Block> POWERED_HEATING_COIL_H = registerBlock("powered_heating_coil_h", () -> new AttachedBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(state -> state.getValue(BlockStateProperties.ATTACHED) ? 8 : 0)), true);
     public static final DeferredHolder<Block, Block> FIRE_CLAY = registerBlock("fire_clay", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.CLAY)), true);
     public static final DeferredHolder<Block, Block> MEAT_BLOCK = registerBlock("meat_block", () -> new MeatBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT).noOcclusion().sound(SoundType.SLIME_BLOCK)), new Item.Properties().craftRemainder(Items.BONE));
 

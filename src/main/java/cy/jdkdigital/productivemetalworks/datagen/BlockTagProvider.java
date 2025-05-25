@@ -38,8 +38,20 @@ public class BlockTagProvider extends BlockTagsProvider
 
         tag(ModTags.Blocks.HEATING_COILS).add(
                 MetalworksRegistrator.LIQUID_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL.get()
+                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
+                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
         );
+
+        tag(ModTags.Blocks.ENERGY_HEATING_COIL).add(
+                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
+                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
+        );
+
+        tag(ModTags.Blocks.ENERGY_INTERFACE).add(
+                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
+                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
+        );
+
         tag(ModTags.Blocks.FOUNDRY_BOTTOM_BLOCKS).addTag(ModTags.Blocks.HEATING_COILS);
 
         MINEABLE_PICKAXE.add(
@@ -47,7 +59,8 @@ public class BlockTagProvider extends BlockTagsProvider
                 MetalworksRegistrator.CASTING_BASIN.get(),
                 MetalworksRegistrator.CASTING_TABLE.get(),
                 MetalworksRegistrator.LIQUID_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL.get()
+                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
+                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
         )
                 .addTag(ModTags.Blocks.FOUNDRY_CONTROLLERS)
                 .addTag(ModTags.Blocks.FOUNDRY_DRAINS)

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "attached=false": {
+      "model": "productivemetalworks:block/powered_heating_coil_h_off"
+    },
+    "attached=true": {
+      "model": "productivemetalworks:block/powered_heating_coil_h_on"
+    }
+  }
+}

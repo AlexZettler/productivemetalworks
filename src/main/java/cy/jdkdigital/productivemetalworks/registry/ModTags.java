@@ -21,6 +21,8 @@ public class ModTags
         public static final TagKey<Block> FIRE_BRICKS = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "fire_bricks"));
         public static final TagKey<Block> FOUNDRY_WALL_BLOCKS = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "foundry_wall_blocks"));
         public static final TagKey<Block> HEATING_COILS = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "heating_coils"));
+        public static final TagKey<Block> ENERGY_HEATING_COIL = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "energy_heating_coils"));
+        public static final TagKey<Block> ENERGY_INTERFACE = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "energy_interfaces"));
         public static final TagKey<Block> FOUNDRY_BOTTOM_BLOCKS = BlockTags.create(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "foundry_bottom_blocks"));
     }
 
