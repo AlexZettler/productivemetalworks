@@ -218,13 +218,21 @@ public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider im
                 .unlockedBy(getHasName(MetalworksRegistrator.FIRE_BRICK.get()), has(MetalworksRegistrator.FIRE_BRICK.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "crafting/liquid_heating_coil"));
 
-//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MetalworksRegistrator.POWERED_HEATING_COIL.get(), 1)
-//                .pattern("CCC").pattern("CAC").pattern("XXX")
-//                .define('C', Tags.Items.INGOTS_COPPER)
-//                .define('A', Items.AMETHYST_BLOCK)
-//                .define('X', MetalworksRegistrator.FIRE_BRICK.get())
-//                .unlockedBy(getHasName(MetalworksRegistrator.FIRE_BRICK.get()), has(MetalworksRegistrator.FIRE_BRICK.get()))
-//                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "crafting/powered_heating_coil"));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MetalworksRegistrator.POWERED_HEATING_COIL.get(), 1)
+                .pattern("CCC").pattern("CAC").pattern("XXX")
+                .define('C', Tags.Items.INGOTS_COPPER)
+                .define('A', Items.AMETHYST_BLOCK)
+                .define('X', MetalworksRegistrator.FIRE_BRICK.get())
+                .unlockedBy(getHasName(MetalworksRegistrator.FIRE_BRICK.get()), has(MetalworksRegistrator.FIRE_BRICK.get()))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "crafting/powered_heating_coil"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MetalworksRegistrator.POWERED_HEATING_COIL_H.get(), 1)
+                .pattern("CCC").pattern("CAC").pattern("XXX")
+                .define('C', Tags.Items.INGOTS_COPPER)
+                .define('A', Items.DIAMOND)
+                .define('X', MetalworksRegistrator.FIRE_BRICK.get())
+                .unlockedBy(getHasName(MetalworksRegistrator.FIRE_BRICK.get()), has(MetalworksRegistrator.FIRE_BRICK.get()))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "crafting/powered_heating_coil_h"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, MetalworksRegistrator.MEAT_INGOT.get(), 8)
                 .requires(MetalworksRegistrator.MEAT_BLOCK.get())
