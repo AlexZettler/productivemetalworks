@@ -25,6 +25,7 @@ public class BlockTagProvider extends BlockTagsProvider
         MetalworksRegistrator.FOUNDRY_CONTROLLERS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FOUNDRY_CONTROLLERS).add(holder.get()));
         MetalworksRegistrator.FOUNDRY_DRAINS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FOUNDRY_DRAINS).add(holder.get()));
         MetalworksRegistrator.FOUNDRY_TANKS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FOUNDRY_TANKS).add(holder.get()));
+        MetalworksRegistrator.FOUNDRY_CAPACITORS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FOUNDRY_CAPACITORS).add(holder.get()));
         MetalworksRegistrator.FOUNDRY_WINDOWS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FOUNDRY_WINDOWS).add(holder.get()));
         MetalworksRegistrator.FIRE_BRICKS.forEach((dyeColor, holder) -> tag(ModTags.Blocks.FIRE_BRICKS).add(holder.get()));
 
@@ -32,6 +33,7 @@ public class BlockTagProvider extends BlockTagsProvider
                 .addTag(ModTags.Blocks.FOUNDRY_CONTROLLERS)
                 .addTag(ModTags.Blocks.FOUNDRY_DRAINS)
                 .addTag(ModTags.Blocks.FOUNDRY_TANKS)
+                .addTag(ModTags.Blocks.FOUNDRY_CAPACITORS)
                 .addTag(ModTags.Blocks.FOUNDRY_WINDOWS)
                 .addTag(ModTags.Blocks.FIRE_BRICKS)
                 .add(MetalworksRegistrator.MEAT_BLOCK.get());
@@ -39,18 +41,14 @@ public class BlockTagProvider extends BlockTagsProvider
         tag(ModTags.Blocks.HEATING_COILS).add(
                 MetalworksRegistrator.LIQUID_HEATING_COIL.get(),
                 MetalworksRegistrator.POWERED_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
+                MetalworksRegistrator.HIGH_POWERED_HEATING_COIL.get()
         );
 
         tag(ModTags.Blocks.ENERGY_HEATING_COIL).add(
-                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
+                MetalworksRegistrator.POWERED_HEATING_COIL.get()
         );
 
-        tag(ModTags.Blocks.ENERGY_INTERFACE).add(
-                MetalworksRegistrator.POWERED_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
-        );
+        //tag(ModTags.Blocks.ENERGY_INTERFACE).add( );
 
         tag(ModTags.Blocks.FOUNDRY_BOTTOM_BLOCKS).addTag(ModTags.Blocks.HEATING_COILS);
 
@@ -60,11 +58,12 @@ public class BlockTagProvider extends BlockTagsProvider
                 MetalworksRegistrator.CASTING_TABLE.get(),
                 MetalworksRegistrator.LIQUID_HEATING_COIL.get(),
                 MetalworksRegistrator.POWERED_HEATING_COIL.get(),
-                MetalworksRegistrator.POWERED_HEATING_COIL_H.get()
+                MetalworksRegistrator.HIGH_POWERED_HEATING_COIL.get()
         )
                 .addTag(ModTags.Blocks.FOUNDRY_CONTROLLERS)
                 .addTag(ModTags.Blocks.FOUNDRY_DRAINS)
                 .addTag(ModTags.Blocks.FOUNDRY_TANKS)
+                .addTag(ModTags.Blocks.FOUNDRY_CAPACITORS)
                 .addTag(ModTags.Blocks.FOUNDRY_WINDOWS)
                 .addTag(ModTags.Blocks.FIRE_BRICKS);
     }

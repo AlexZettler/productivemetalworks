@@ -9,6 +9,7 @@ import cy.jdkdigital.productivelib.registry.LibItems;
 import cy.jdkdigital.productivelib.util.MultiBlockDetector;
 import cy.jdkdigital.productivelib.util.MultiFluidTank;
 import cy.jdkdigital.productivemetalworks.Config;
+import cy.jdkdigital.productivemetalworks.common.block.FoundryControllerBlock;
 import cy.jdkdigital.productivemetalworks.common.datamap.EnergyCoilMap;
 import cy.jdkdigital.productivemetalworks.common.menu.FoundryControllerContainer;
 import cy.jdkdigital.productivemetalworks.recipe.FluidAlloyingRecipe;
@@ -182,6 +183,8 @@ public class FoundryControllerBlockEntity extends FluidTankBlockEntity implement
                 });
             }
 
+           
+
             // TODO: identify coil type
 
 
@@ -211,10 +214,11 @@ public class FoundryControllerBlockEntity extends FluidTankBlockEntity implement
         blockEntity.tickCounter = ++blockEntity.tickCounter % 200;
 
         // Every 10 seconds update multiblocks
-        if (blockEntity.tickCounter == 0) {// TODO scaling number based on failures
+
+        if (++blockEntity.tickCounter%200 == 0) {// TODO scaling number based on failures
+            blockEntity.tickCounter = 0;
             try {
-                var foundryData = MultiBlockDetector.detectStructure(level, pos, ModTags.Blocks.FOUNDRY_WALL_BLOCKS, ModTags.Blocks.FOUNDRY_BOTTOM_BLOCKS, true, true, Config.foundryMaxVolume, Config.foundryMaxCircumference, Config.foundryMaxHeight);
-                blockEntity.setMultiBlockData(foundryData);
+                blockEntity.setMultiBlockData(FoundryControllerBlock.detectMultiblock(level, pos));
             } catch (InvalidStructureException e) {
                 blockEntity.setMultiBlockData(null);
             }
@@ -532,6 +536,7 @@ class LiquidMelter implements IMelterProcessor {
         }
     }
 }
+
 
 class EnergyMelter implements IMelterProcessor {
     public int GetFuelLevel(){

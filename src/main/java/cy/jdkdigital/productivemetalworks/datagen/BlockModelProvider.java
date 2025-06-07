@@ -69,6 +69,9 @@ public class BlockModelProvider implements DataProvider
         MetalworksRegistrator.FOUNDRY_TANKS.forEach((dyeColor, holder) -> {
             addBlockItemParentModel(holder.get(), "", "", itemModels);
         });
+        MetalworksRegistrator.FOUNDRY_CAPACITORS.forEach((dyeColor, holder) -> {
+            addBlockItemParentModel(holder.get(), "", "", itemModels);
+        });
         MetalworksRegistrator.FOUNDRY_WINDOWS.forEach((dyeColor, holder) -> {
             addBlockItemParentModel(holder.get(), "", "", itemModels);
         });
@@ -79,7 +82,7 @@ public class BlockModelProvider implements DataProvider
         addBlockItemParentModel(MetalworksRegistrator.FIRE_CLAY.get(), "", "", itemModels);
         addBlockItemParentModel(MetalworksRegistrator.LIQUID_HEATING_COIL.get(), "", "_off", itemModels);
         addBlockItemParentModel(MetalworksRegistrator.POWERED_HEATING_COIL.get(), "", "_off", itemModels);
-        addBlockItemParentModel(MetalworksRegistrator.POWERED_HEATING_COIL_H.get(), "", "_off", itemModels);
+        addBlockItemParentModel(MetalworksRegistrator.HIGH_POWERED_HEATING_COIL.get(), "", "_off", itemModels);
         addBlockItemModel(MetalworksRegistrator.CASTING_BASIN.get(), "casting_basin_base", itemModels);
         addBlockItemModel(MetalworksRegistrator.CASTING_TABLE.get(), "casting_table_base", itemModels);
         addBlockItemParentModel(MetalworksRegistrator.MEAT_BLOCK.get(), "", "", itemModels);
@@ -155,6 +158,7 @@ public class BlockModelProvider implements DataProvider
         static ModelTemplate controllerBaseModel = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_controller_base")), Optional.empty(), TextureSlot.FRONT, TextureSlot.SIDE, TextureSlot.TOP);
         static ModelTemplate drainBaseModel = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_drain_base")), Optional.empty(), TextureSlot.FRONT, TextureSlot.SIDE, TextureSlot.TOP);
         static ModelTemplate tankBaseModel = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_tank_base")), Optional.empty(), TextureSlot.FRONT, TextureSlot.SIDE, TextureSlot.TOP);
+        static ModelTemplate capacitorBaseModel = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_capacitor_base")), Optional.empty(), TextureSlot.FRONT, TextureSlot.SIDE, TextureSlot.TOP);
         static ModelTemplate windowBaseModel = new ModelTemplate(Optional.of(ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_window_base")), Optional.empty(), TextureSlot.FRONT, TextureSlot.SIDE, TextureSlot.TOP);
 
         protected void registerStatesAndModels(Consumer<BlockStateGenerator> blockStateOutput, BiConsumer<ResourceLocation, Supplier<JsonElement>> modelOutput) {
@@ -170,6 +174,9 @@ public class BlockModelProvider implements DataProvider
             MetalworksRegistrator.FOUNDRY_TANKS.forEach((dyeColor, holder) -> {
                 this.blockStateOutput.accept(createBasedBlock(holder.get(), tankBaseModel, dyeColor, "block/" + dyeColor.getSerializedName() + "_foundry_tank_front"));
             });
+            MetalworksRegistrator.FOUNDRY_CAPACITORS.forEach((dyeColor, holder) -> {
+                this.blockStateOutput.accept(createBasedBlock(holder.get(), capacitorBaseModel, dyeColor, "block/" + dyeColor.getSerializedName() + "_foundry_capacitor_front"));
+            });
             MetalworksRegistrator.FOUNDRY_WINDOWS.forEach((dyeColor, holder) -> {
                 this.blockStateOutput.accept(createBasedBlock(holder.get(), windowBaseModel, dyeColor, "block/" + dyeColor.getSerializedName() + "_foundry_window_front"));
             });
@@ -179,7 +186,7 @@ public class BlockModelProvider implements DataProvider
             this.blockStateOutput.accept(createHorizontalFacing(MetalworksRegistrator.FOUNDRY_TAP.get(), ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/foundry_tap_base")));
             this.blockStateOutput.accept(createHeatingCoil(MetalworksRegistrator.LIQUID_HEATING_COIL.get()));
             this.blockStateOutput.accept(createHeatingCoil(MetalworksRegistrator.POWERED_HEATING_COIL.get()));
-            this.blockStateOutput.accept(createHeatingCoil(MetalworksRegistrator.POWERED_HEATING_COIL_H.get()));
+            this.blockStateOutput.accept(createHeatingCoil(MetalworksRegistrator.HIGH_POWERED_HEATING_COIL.get()));
             this.blockStateOutput.accept(createHorizontalFacing(MetalworksRegistrator.CASTING_BASIN.get(), ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/casting_basin_base")));
             this.blockStateOutput.accept(createHorizontalFacing(MetalworksRegistrator.CASTING_TABLE.get(), ResourceLocation.fromNamespaceAndPath(ProductiveMetalworks.MODID, "block/casting_table_base")));
             this.blockStateOutput.accept(createFullBlock(MetalworksRegistrator.FIRE_CLAY.get()));

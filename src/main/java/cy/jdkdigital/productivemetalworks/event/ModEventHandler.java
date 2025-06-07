@@ -46,6 +46,11 @@ public class ModEventHandler
                 (myBlockEntity, side) -> myBlockEntity.getFluidHandler()
         );
         event.registerBlockEntity(
+                Capabilities.EnergyStorage.BLOCK,
+                MetalworksRegistrator.FOUNDRY_CAPACITOR_BLOCK_ENTITY.get(),
+                (myBlockEntity, side) -> myBlockEntity.getEnergyHandler()
+        );
+        event.registerBlockEntity(
                 Capabilities.FluidHandler.BLOCK,
                 MetalworksRegistrator.CASTING_BLOCK_ENTITY.get(),
                 (myBlockEntity, side) -> myBlockEntity.isCooling() ? null : myBlockEntity.getFluidHandler()
@@ -61,9 +66,7 @@ public class ModEventHandler
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(MetalworksRegistrator.TAB_KEY)) {
             for (DeferredHolder<Item, ? extends Item> item : ProductiveMetalworks.ITEMS.getEntries()) {
-                //if (!item.is(MetalworksRegistrator.POWERED_HEATING_COIL.getId())) {
-                    event.accept(item.value());
-                //}
+                event.accept(item.value());
             }
             event.accept(LibItems.UPGRADE_TIME.get());
             event.accept(LibItems.UPGRADE_TIME_2.get());
