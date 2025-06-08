@@ -193,6 +193,7 @@ public class FoundryControllerBlockEntity extends FluidTankBlockEntity implement
 
             //FoundryControllerBlockEntity::GetCoilType
 
+            blockEntity.coilType = CoilType.LIQUID;
 
             IMelterProcessor mp;
             switch (blockEntity.coilType){
@@ -330,7 +331,7 @@ public class FoundryControllerBlockEntity extends FluidTankBlockEntity implement
                 }
             }
         }
-        return FluidStack.EMPTY;
+        return fuel;
     }
 
     void addRecipeResult(List<FluidStack> result) {
